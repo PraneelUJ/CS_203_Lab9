@@ -11,7 +11,7 @@ def cancer_loader(context, format="csv"):
     
     context.logger.info('saving dataset to {}'.format(context.artifact_path))
     context.log_dataset('dataset', df=dataset, format=format, index=False)
-    
+    context.log_result("label_column", "target")
     return dataset, "target"
 
 if __name__ == "__main__":

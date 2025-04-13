@@ -16,8 +16,8 @@ def pipeline(model_name="cancer_classifier"):
         inputs={"dataset": ingest.outputs["dataset"]},
         hyperparams={
         "n_estimators": [10, 100,200],
-            "learning_rate": [ 1e-3],
-            "max_depth": [2, 5,10]
+            "max_depth": [2, 5,10],
+            "min_samples_split": [2, 5]
         },
         selector="max.accuracy",
         outputs=["model"],

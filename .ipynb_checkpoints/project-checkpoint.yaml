@@ -1,21 +1,25 @@
+kind: project
+status:
+  state: online
 spec:
-  origin_url: git://github.com/PraneelUJ/CS_203_Lab9#refs/heads/main
   functions:
-  - url: Data_prep.py
+  - url: data_prep.py
     name: load-cancer-data
     kind: job
     image: mlrun/mlrun
-  - url: Trainer.py
+  - url: trainer.py
     name: trainer
     kind: job
     image: mlrun/mlrun
+    handler: train
   - url: serving.py
     name: serving
     kind: serving
     image: mlrun/mlrun
-  conda: ''
   desired_state: online
   source: git://github.com/PraneelUJ/CS_203_Lab9#refs/heads/main
+  origin_url: git://github.com/PraneelUJ/CS_203_Lab9#refs/heads/main
+  conda: ''
 metadata:
-  name: sttai-lab9-jovyan
-kind: project
+  created: '2025-04-14T10:39:04.954344'
+  name: sttai2-jovyan

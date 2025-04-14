@@ -1,7 +1,7 @@
 import mlrun
 from kfp import dsl
 
-@dsl.pipeline(name="cancer")
+@dsl.pipeline(name="breast-cancer")
 def pipeline(model_name="cancer_classifier"):
     
     ingest = mlrun.run_function(
@@ -15,9 +15,8 @@ def pipeline(model_name="cancer_classifier"):
         "trainer",
         inputs={"dataset": ingest.outputs["dataset"]},
         hyperparams={
-        "n_estimators": [10, 100,200],
-            "max_depth": [2, 5,10],
-            "min_samples_split": [2, 5]
+            "n_estimators": [10, 100,200],
+            "max_depth": [2, 5, 10],
         },
         selector="max.accuracy",
         outputs=["model"],
